@@ -1,0 +1,78 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://fonts/new_dynamicfont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://UI/level_completion_ui.gd" type="Script" id=2]
+
+[node name="level_completion_ui" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 320.0
+margin_bottom = 184.0
+color = Color( 0, 0, 0, 0.470588 )
+
+[node name="end_message" type="Label" parent="."]
+anchor_right = 1.0
+margin_top = 20.0
+margin_bottom = 33.0
+custom_fonts/font = ExtResource( 1 )
+align = 1
+valign = 1
+
+[node name="new_record_message" type="Label" parent="."]
+anchor_right = 1.0
+margin_top = 40.0
+margin_bottom = 53.0
+custom_fonts/font = ExtResource( 1 )
+align = 1
+valign = 1
+
+[node name="next_level" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -40.0
+margin_top = -10.0
+margin_right = 40.0
+margin_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = ExtResource( 1 )
+text = "Далее"
+icon_align = 1
+expand_icon = true
+
+[node name="play_again" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -40.0
+margin_top = 20.0
+margin_right = 40.0
+margin_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = ExtResource( 1 )
+text = "Заново"
+icon_align = 1
+expand_icon = true
+
+[node name="main_menu" type="Button" parent="."]
+margin_left = 120.0
+margin_top = 140.0
+margin_right = 200.0
+margin_bottom = 159.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = ExtResource( 1 )
+text = "Главное меню"
+icon_align = 1
+expand_icon = true
+
+[connection signal="pressed" from="next_level" to="." method="_on_next_level_pressed"]
+[connection signal="pressed" from="play_again" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="main_menu" to="." method="_on_main_menu_pressed"]

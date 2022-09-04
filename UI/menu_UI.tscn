@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://fonts/new_dynamicfont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://UI/menu_UI.gd" type="Script" id=2]
+
+[node name="menu_UI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="start_game_button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -33.5
+margin_top = 25.0
+margin_right = 33.5
+margin_bottom = 45.0
+custom_fonts/font = ExtResource( 1 )
+text = "Начать игру"
+
+[node name="settings" type="Button" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -33.5
+margin_top = 60.0
+margin_right = 33.5
+margin_bottom = 80.0
+custom_fonts/font = ExtResource( 1 )
+text = "Настройки"
+
+[node name="records" type="Button" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -33.5
+margin_top = 95.0
+margin_right = 33.5
+margin_bottom = 115.0
+custom_fonts/font = ExtResource( 1 )
+text = "Рекорды"
+
+[node name="exit_game" type="Button" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -33.5
+margin_top = 130.0
+margin_right = 33.5
+margin_bottom = 150.0
+custom_fonts/font = ExtResource( 1 )
+text = "Выйти"
+
+[connection signal="pressed" from="start_game_button" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="records" to="." method="_on_records_pressed"]
+[connection signal="pressed" from="exit_game" to="." method="_on_exit_game_pressed"]

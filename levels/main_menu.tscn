@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://World/GrassBackground.png" type="Texture" id=1]
+[ext_resource path="res://UI/menu_UI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI/select_level_ui.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UI/records_ui.tscn" type="PackedScene" id=4]
+
+[node name="main_menu" type="Node2D"]
+
+[node name="background" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 320, 192 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+
+[node name="menu_UI" parent="." instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 160.0
+margin_right = 160.0
+
+[node name="select_level_ui" parent="." instance=ExtResource( 3 )]
+visible = false
+margin_right = 320.0
+margin_bottom = 180.0
+
+[node name="records_ui" parent="." instance=ExtResource( 4 )]
+visible = false
+margin_right = 320.0
+margin_bottom = 180.0
+
+[connection signal="records_button_pressed" from="menu_UI" to="records_ui" method="_on_menu_UI_records_button_pressed"]
+[connection signal="start_game_button_pressed" from="menu_UI" to="select_level_ui" method="_on_menu_UI_start_game_button_pressed"]
+[connection signal="back_button_pressed" from="select_level_ui" to="menu_UI" method="_on_select_level_ui_back_button_pressed"]
+[connection signal="back_button_pressed" from="records_ui" to="menu_UI" method="_on_records_ui_back_button_pressed"]
